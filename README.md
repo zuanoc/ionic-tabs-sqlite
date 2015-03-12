@@ -1,4 +1,4 @@
-# An Example App Using Ionic Framework App With Pre-Filled SQLite DB  
+# An Example App Using Ionic Framework With Pre-Filled SQLite DB  
 
 Install ionic
 
@@ -16,8 +16,8 @@ Install ngcordova http://ngcordova.com/docs/install/
 ##  SQLitePlugin
 
 
-https://github.com/Antair/Cordova-SQLitePlugin
-http://www.phonegapspain.com/topic/usar-bd-sqlite-ya-existente/
+* https://github.com/Antair/Cordova-SQLitePlugin
+* http://www.phonegapspain.com/topic/usar-bd-sqlite-ya-existente/
 
 `cordova plugin add  https://github.com/Antair/Cordova-SQLitePlugin.git`
 
