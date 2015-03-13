@@ -7,7 +7,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'ngCordova'] )
 
-.run(function($ionicPlatform, DB) {
+.run(function($ionicPlatform, DB, $log) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -20,71 +20,10 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
     }
 
     if (window.sqlitePlugin){
-      /*
-      console.log("import prepopulated sqlite database....");
-      window.sqlitePlugin.importPrepopulatedDatabase({file: "chat.db", "importIfExists": true});
-      console.log("Opening sqlite database....");
-      db = window.sqlitePlugin.openDatabase({name: "chat.db"});
-      console.log("Opening sqlite database ok ");
-      console.log("db:"+db);
-
-      db.transaction(function(tx) {
-        console.log("**************************************");
-        console.log("query a prepopulated sqlite database..." );
-        //tx.executeSql("select count(id) as cnt from chats;", [], function(tx, res) {
-        tx.executeSql("select * from chats;", [], function(tx, res) {
-          console.log("****  res.rows.length: " + res.rows.length + " -- should be 2");
-          console.log(" res: " + JSON.stringify(res));
-          console.log("res.rows.item(0): " +  JSON.stringify( res.rows.item(0) ));
-
-          for (var i = 0; i < res.rows.length; i++) {
-            console.log("item : "+result.rows.item(i));
-          }
-         console.log("**************************************");
-        });
-      });
-      */
-
       DB.init() ;
-
-
-
-      /*
-      db.transaction(function(tx) {
-        tx.executeSql('DROP TABLE IF EXISTS test_table');
-        tx.executeSql('CREATE TABLE IF NOT EXISTS test_table (id integer primary key, data text, data_num integer)');
-
-        // demonstrate PRAGMA:
-        db.executeSql("pragma table_info (test_table);", [], function(res) {
-          console.log("PRAGMA res: " + JSON.stringify(res));
-        });
-
-        tx.executeSql("INSERT INTO test_table (data, data_num) VALUES (?,?)", ["test", 100], function(tx, res) {
-          console.log("insertId: " + res.insertId + " -- probably 1");
-          console.log("rowsAffected: " + res.rowsAffected + " -- should be 1");
-
-          db.transaction(function(tx) {
-            tx.executeSql("select count(id) as cnt from test_table;", [], function(tx, res) {
-              console.log("res.rows.length: " + res.rows.length + " -- should be 1");
-              console.log("res.rows.item(0).cnt: " + res.rows.item(0).cnt + " -- should be 1");
-            });
-          });
-
-        }, function(e) {
-          console.log("ERROR: " + e.message);
-        });
-      });
-      */
-
-      
-
-
     }else{
-      console.log("sqlitePlugin not found ");
+      $log.error("sqlitePlugin not found ");
     }
-    
-    
-    
   });
 })
 
@@ -143,8 +82,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
       }
     }
   });
-
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
-
 });
