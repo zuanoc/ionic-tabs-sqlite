@@ -33,6 +33,9 @@ Antair's Cordova-SQLitePlugin is the only one that works:
 
 `cordova plugin add  https://github.com/Antair/Cordova-SQLitePlugin.git`
 
+Take a look to _services.js_:
+`window.sqlitePlugin.importPrepopulatedDatabase({file: "chat.db", "importIfExists": true});`
+
 
 ## Add android , build,  emulate...
 
