@@ -51,7 +51,7 @@ Logging android debugger
 
 `adb logcat Cordova:D DroidGap:D CordovaLog:D *:S`
 
-## Running it on the real device
+## Testing app on phone
 
 TODO
 
