@@ -1,8 +1,5 @@
 <ion-view view-title="Chats">
   <ion-content>
-    <button class="button" ng-click="getAll()">Show</button>
-    <button class="button" ng-click="getAll()">Show</button>
-    <button class="button" ng-click="getAll()">Show</button>
     <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" 
                 ng-repeat="chat in chats" 
@@ -14,10 +11,6 @@
         <p>{{chat.last_text}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      
       </ion-item>
     </ion-list>
   </ion-content>

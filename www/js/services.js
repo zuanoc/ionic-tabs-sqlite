@@ -59,7 +59,7 @@ angular.module('starter.services', [])
         $log.debug("import prepopulated sqlite database....");
         window.sqlitePlugin.importPrepopulatedDatabase({file: "chat.db", "importIfExists": true});
 
-        // Use self.db = window.sqlitePlugin.openDatabase({name: DB_CONFIG.name}); in production
+        // Use self.db = window.sqlitPelugin.openDatabase({name: DB_CONFIG.name}); in production
         //self.db = window.openDatabase("chat.db", '1.0', 'database', -1);
         $log.debug("Opening sqlite database  ");
         self.db = window.sqlitePlugin.openDatabase({name: "chat.db"});
@@ -89,10 +89,10 @@ angular.module('starter.services', [])
         var output = [];
  
         for (var i = 0; i < result.rows.length; i++) {
-            $log.debug( JSON.stringify( result.rows.item(i)  ));
+            //$log.debug( JSON.stringify( result.rows.item(i)  ));
             output.push(result.rows.item(i));
         }
-        
+        $log.debug(JSON.stringify(output));
         return output;
     };
  
@@ -108,14 +108,15 @@ angular.module('starter.services', [])
     var self = this;
     
     self.all = function() {
-        $log.debug("chats->all");
+        $log.debug("chats->all...");
         return DB.query('SELECT id, name, face, last_text FROM chats order by id')
         .then(function(result){
             return DB.fetchAll(result);
         });
     };
     
-    self.getById = function(id) {
+    self.get = function(id) {
+        $log.debug("chats->get...");
         return DB.query('SELECT * FROM chats WHERE id = ?', [id])
         .then(function(result){
             return DB.fetch(result);
