@@ -116,7 +116,6 @@ angular.module('starter.services', [])
     };
     
     self.get = function(id) {
-        $log.debug("chats->get...");
         return DB.query('SELECT * FROM chats WHERE id = ?', [id])
         .then(function(result){
             return DB.fetch(result);
