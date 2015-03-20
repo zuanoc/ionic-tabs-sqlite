@@ -1,4 +1,4 @@
-# An Example App Using Ionic Framework With Pre-Filled SQLite DB  
+# An Example App Using Ionic Framework With a Pre-Filled SQLite DB  
 
 
 A "Hello World" app using Ionic Framework that loads a  Pre-Filled SQLite Database.
